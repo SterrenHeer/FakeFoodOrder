@@ -1,11 +1,9 @@
 import React from 'react';
 import classes from './Input.module.scss';
 
-const Input = ({children, ...props}) => {
+const Input = props => {
 	return (
-		<input {...props} className={classes.input}>
-			{children}
-		</input>
+		<input {...props} className={classes.input}></input>
 	);
 };
 
