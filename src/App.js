@@ -1,16 +1,21 @@
-import React from "react";
-import Counter from "./components/Counter";
-import ClassCounter from "./components/ClassCounter";
+import React, {useState} from "react";
 import PostItem from "./components/PostItem";
 
 import "./styles/App.scss"
 
 function App() {
+	const [posts, setPosts] = useState([
+		{id: 1, title: 'JavaScript', body: 'Description'},
+		{id: 2, title: 'JavaScript 2', body: 'Description'},
+		{id: 3, title: 'JavaScript 3', body: 'Description'},
+	])
+
   	return (
 		<div className="App">
-			<Counter />
-			<ClassCounter />
-			<PostItem />
+			<h1 style={{textAlign: 'center'}}>Список постов</h1>
+			{posts.map(post => 
+				<PostItem post={post} key={post.id}/>
+			)}
 		</div>
   	);
 }
