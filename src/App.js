@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import PostList from "./components/PostList";
-import Button from "./components/UI/button/Button";
-import Input from "./components/UI/input/Input";
+import PostForm from "./components/PostForm";
 
 import "./styles/App.scss"
 
@@ -12,31 +11,13 @@ function App() {
 		{id: 3, title: 'JavaScript 3', body: 'Description'},
 	])
 
-	const [post, setPost] = useState({title: '', body: ''})
-
-	const addNewPost = (e) => {
-		e.preventDefault()
-		setPosts([...posts, {...post, id: Date.now(),}])
-		setPost({title: '', body: ''})
-	}
+	const createPost = (newPost) => {
+		setPosts([...posts, newPost])
+	} 
 
   	return (
 		<div className="App">
-			<form>
-				<Input 
-					value={post.title}
-					onChange={e => setPost({...post, title: e.target.value})}
-					type="text" 
-					placeholder="Название поста"
-				/>
-				<Input 
-					value={post.body}
-					onChange={e => setPost({...post, body: e.target.value})}
-					type="text" 
-					placeholder="Описание поста"
-				/>
-				<Button onClick={addNewPost}>Создать пост</Button>
-			</form>
+			<PostForm create={createPost} />
 			<PostList posts={posts} title={'Список постов 1'} />
 		</div>
   	);
