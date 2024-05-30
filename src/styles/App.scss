@@ -21,4 +21,18 @@
 	&_btns {
 		display: flex;
 	}
+	&-enter {
+		transform: translateX(-350px);
+	}
+	&-enter-active {
+		transform: translateX(0px);
+		transition: all 500ms ease-in;
+	}
+	&-exit {
+		opacity: 1;
+	}
+	&-exit-active {
+		transform: translateX(-350px);
+		transition: all 500ms ease-in;
+	}
 }
