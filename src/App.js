@@ -7,6 +7,7 @@ import Modal from "./components/Modal/Modal";
 import { usePosts } from "./hooks/usePosts";
 import "./styles/App.scss"
 import PostService from "./API/PostService";
+import Loader from "./components/UI/loader/Loader";
 
 function App() {
 	const [posts, setPosts] = useState([])
@@ -47,7 +48,7 @@ function App() {
 				setFilter={setFilter}
 			/>
 			{isPostLoading
-				? <h1>Идёт загрузка...</h1>
+				? <Loader />
 				: <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Список постов 1'} />
 			}
 		</div>
